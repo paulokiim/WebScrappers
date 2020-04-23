@@ -1,7 +1,7 @@
 const readline = require("readline");
 const { promisify } = require("util");
 
-readline.Interface.prototype.question[promisify.custom] = function (prompt) {
+readline.Interface.prototype.question[promisify.custom] = (prompt) => {
   return new Promise((resolve) =>
     readline.Interface.prototype.question.call(this, prompt, resolve)
   );

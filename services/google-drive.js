@@ -1,6 +1,8 @@
 const { google } = require("googleapis");
-const token = require("../config/google-api/token.json");
-const credentials = require("../config/google-api/credentials.json");
+const googleApiConfig = require("../config/google-api");
+
+const token = googleApiConfig.token;
+const credentials = googleApiConfig.creadentials;
 
 const authorize = () => {
   const { client_secret, client_id, redirect_uris } = credentials.installed;
