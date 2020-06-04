@@ -54,7 +54,7 @@ const getProductInformations = async (page) => {
     ".item-installments-interest"
   );
 
-  const linksElement = await page.$$("a.item-link.item__js-link");
+  const linksElement = await page.$$(".item__info-title");
   const links = await Promise.all(
     linksElement.map((element) => {
       return page.evaluate((elem) => elem.getAttribute("href"), element);

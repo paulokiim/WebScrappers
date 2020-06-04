@@ -1,7 +1,7 @@
 const readline = require("readline");
 const { promisify } = require("util");
 
-readline.Interface.prototype.question[promisify.custom] = (prompt) => {
+readline.Interface.prototype.question[promisify.custom] = function (prompt) {
   return new Promise((resolve) =>
     readline.Interface.prototype.question.call(this, prompt, resolve)
   );
@@ -15,7 +15,6 @@ const askQuestion = async (question) => {
     input: process.stdin,
     output: process.stdout,
   });
-
   const answer = await promisifiedReadline.questionAsync(question);
   promisifiedReadline.close();
   return answer;
